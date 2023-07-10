@@ -1,0 +1,44 @@
+#
+# Macro file for "NeutronSource.cc"
+#
+/control/verbose 2
+/run/verbose 1
+#
+/process/em/verbose 0
+/process/had/verbose 0
+
+# Define Geometry Parameters
+
+/NCamera/Geometry/distance_plane 50. cm
+/NCamera/Geometry/profile_length 35. cm
+
+#
+/run/initialize
+#
+
+## ----------------------------------------------------------------------------
+
+## Physics macro to interrupt the Cf-252 decay after the decay of Cm248.
+## Parameters: n1 n2 n3 n4, with n1(n2) = nucleon number of the
+## first (last) decaying isotope and n3(n4) = atomic number of the
+## first (last) decaying isotope.
+
+/process/had/rdm/nucleusLimits 252 252 98 154
+
+## ----------------------------------------------------------------------------
+
+/process/inactivate hadElastic
+#
+/gps/pos/type Point
+/gps/pos/centre  0 -100. 30. cm
+/gps/ang/type iso
+/gps/particle ion
+/gps/ion 98 252 0 0
+#/gps/energy 0. eV
+
+#
+##/analysis/setFileName NeutronSource
+##/analysis/h1/set 6  60  0. 12.  MeV #neutrons
+#
+/run/printProgress 10000
+/run/beamOn 1000000
