@@ -1,0 +1,30 @@
+# Macro
+
+# Can be run in batch, without graphic
+# or interactively: Idle> /control/execute run1.mac
+
+# Change the default number of workers (in multi-threading mode)
+#/run/numberOfThreads 4
+
+# Define Geometry Parameters
+
+/NCamera/Geometry/distance_plane 40. cm
+/NCamera/Geometry/scin_distance 20. cm
+
+/gps/particle neutron
+
+/gps/pos/type Point
+/gps/pos/centre  88.1678 285.317 28.6475 cm
+/gps/ang/type iso
+
+/gps/ene/type Mono
+/gps/ene/mono 1. MeV
+
+
+# Initialize kernel
+/run/initialize
+
+/tracking/verbose 0
+#/tracking/verbose 1
+
+/run/beamOn 10000 #1000000000
